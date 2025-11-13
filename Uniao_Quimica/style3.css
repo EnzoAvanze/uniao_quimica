@@ -1,0 +1,302 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fundo com gradiente e imagem */
+body {
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)),
+        url("assets/Pictures/enzoa\ \(2\).png") center/cover no-repeat;
+    height: 120vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: "Federo", sans-serif;
+}
+
+/* Fonte personalizada */
+@font-face {
+    font-family: "Federo";
+    src: url("assets/font/Federo-Regular.ttf") format("truetype");
+}
+
+/* Títulos e textos */
+h1,h2,h3,h4,h5,h6,a,p,label,li,input {
+    font-family: "Federo", sans-serif;
+    font-weight: 400;
+}
+
+h1 { font-size: 50px; }
+h2 { font-size: 35px; }
+h3 { font-size: 25px; }
+h4 { font-size: 15px; }
+
+.tela-preta {
+  position: fixed;
+  inset: 0; /* ocupa a tela toda */
+  background: black;
+  z-index: 9999;
+  animation: skibidi 2s ease forwards; /* anima quando abre */
+}
+
+@keyframes skibidi {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+
+/* Header fixo */
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    z-index: 1000;
+}
+
+/* Logo */
+#logo img {
+    height: 70px;
+    width: auto;
+}
+
+/* Ícones */
+.icones {
+    display: flex;
+    gap: 15px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.icones i:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+/* Menu */
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin-top: 10px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav ul li {
+    cursor: pointer;
+}
+
+nav ul li i {
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+/* Bloco Cadastro */
+.Cadastro {
+    margin-top: 10%;
+    background: rgba(240,240,240,0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    width: 700px;
+    height: auto;
+    align-items: center;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.Cadastro h1 {
+    color: red;
+    margin-bottom: 10px;
+}
+
+/* Inputs */
+.input h4 {
+    display: flex;              /* coloca label e input na mesma linha */
+    align-items: center;        /* centraliza verticalmente */
+    gap: 10px;                  /* espaço entre label e input */
+    margin: 10px 0;
+    width: 100%;                /* cada linha ocupa 100% do container */
+}
+
+.input h4 label {
+    flex-shrink: 0;             /* label mantém o tamanho do texto */
+}
+
+.input h4 input {
+    flex: 1;                     /* input ocupa todo o espaço restante */
+    padding: 8px;
+    border: 1px solid #000000;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Tabela */
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    width: 100px;           /* define largura fixa para todas as colunas */
+    padding: 12px;
+    text-align: center;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+/* Apenas para o cabeçalho */
+th {
+    background-color: #B50000;
+    color: white;
+}
+
+/* Links dentro da div baba */
+.baba a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border: 1px solid black;
+    border-radius: 12px;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: red;
+    transition: 0.8s;
+}
+
+.baba a:hover {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
+
+/* Botão Voltar */
+#Voltar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+#Voltar a {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#Voltar a:hover {
+    text-decoration: underline;
+}
+
+/* --- Responsividade para celular --- */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;       /* organiza elementos em coluna */
+        justify-content: flex-start;  /* empilha do topo para baixo */
+        align-items: center;
+        padding: 10px;
+        height: auto;
+    }
+
+    /* Logo acima do container */
+    #logo {
+        position: relative;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-bottom: 20px;
+        z-index: 1000;
+    }
+
+    #logo img {
+        height: 80px;                  /* reduz tamanho da logo no celular */
+        width: auto;
+    }
+
+    /* Ícones no canto superior direito */
+    .icones {
+        position: absolute;             /* fixa no topo direito */
+        top: 10%;                        /* distância do topo */
+        left: 95%;                      /* posição inicial da esquerda */
+        transform: translate(-100%, 0); /* move para o canto direito */
+        display: flex;
+        gap: 5%;
+        z-index: 1000;
+        font-size: 18px;
+    }
+
+    nav ul {
+        flex-direction: column;        /* empilha itens do menu */
+        gap: 8px;
+        width: 100%;
+        text-align: center;
+        margin-top: 120px;             /* espaço abaixo do logo */
+    }
+
+    /* Container Cadastro */
+    .Cadastro {
+        height: 100%;
+        width: 90vw;                     /* ocupa quase toda a tela */
+        padding: 20px;
+        margin-top: 20vh;
+        margin-right: 3vw;        /* joga 5% para a direita */
+    }
+
+    /* Inputs */
+    .input h4 {
+        flex-direction: column;        /* label em cima do input */
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .input h4 input {
+        width: 100%;                   /* input ocupa toda a largura */
+        padding: 6px;
+        font-size: 14px;
+    }
+
+    /* Tabela */
+    table {
+        width: 100%;                   /* tabela ocupa toda a largura */
+        font-size: 12px;
+    }
+
+    th, td {
+        width: auto;                   /* deixa colunas proporcionais */
+        padding: 8px;
+    }
+
+    /* Textos e botões */
+    h1 { font-size: 28px; }
+    h2 { font-size: 20px; }
+    h3 { font-size: 16px; }
+    h4 { font-size: 14px; }
+
+    .btn {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .baba a {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
